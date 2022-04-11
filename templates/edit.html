@@ -1,0 +1,122 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'edit.js') }}"></script>
+
+<script>
+    var one = {{ one| tojson}}
+</script>
+
+<style>
+    .header {
+        display: block;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: rgb(23, 64, 139);
+    }
+
+ .up{margin-top:  0px;padding-top:0%}
+</style>
+
+
+<div class="row">
+    <div class="col-md-12 header">
+        <h2>Editing "{{one.name}}"</h2>
+    </div>
+</div>
+
+<form id="new-form" novalidate>
+
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Team(s)</label>
+        <div class="col-sm-6" id="form-team">
+            <input type="text" class="form-control" id="input-team" value="{{one.years}}">
+        </div>
+        
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Statics</label>
+        <label class="col-sm-1 col-form-label">Points</label>
+        <div class="col-sm-2" id="form-points">
+            <input type="number" min="0" class="form-control" id="input-points" value="{{one.points}}">
+        </div>
+
+        <label class="col-sm-1 col-form-label">Rebounds</label>
+        <div class="col-sm-2" id="form-rebounds">
+            <input type="number" min="0" class="form-control" id="input-rebounds" value="{{one.rebounds}}">
+        </div>
+
+        <label class="col-sm-1 col-form-label">Assists</label>
+        <div class="col-sm-2" id="form-assists">
+            <input type="number" min="0" class="form-control" id="input-assists" value="{{one.assists}}">
+        </div>
+    </div>
+
+  
+
+
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Summary</label>
+        <div class="col-sm-10" id="form-summary">
+            <input type="text" class="form-control" id="input-summary" value="{{one.feature}}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10" id="form-description">
+            <textarea class="form-control"  id="input-description" rows="4">{{one.overview}} </textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Awards <img src="https://www.freeiconspng.com/thumbs/edit-icon-png/edit-new-icon-22.png" width="15px"
+            alt="edit"></label>
+        <label class="col-sm-2 col-form-label">Champianship(s)</label>
+        <div class="col-sm-4" id="form-champ">
+            <input type="text" class="form-control" id="input-champ" value="{{one.championships}}">
+        </div>
+        <label class="col-sm-2 col-form-label">All STAR times</label>
+        <div class="col-sm-2" id="form-allstar">
+            <input type="number" min="0" max="24" class="form-control" id="input-allstar" value="{{one.allstar}}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"></label>
+        <label class="col-sm-2 col-form-label">MVP(s)</label>
+        <div class="col-sm-4" id="form-mvp">
+            <input type="text" class="form-control" id="input-mvp" value="{{one.mvp}}">
+        </div>
+        <label class="col-sm-2 col-form-label">All-NBA times</label>
+        <div class="col-sm-2" id="form-allnba">
+            <input type="number" min="0" max="24" class="form-control" id="input-allnba" value="{{one.allnba}}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"></label>
+        <label class="col-sm-2 col-form-label">FMVP(S)</label>
+        <div class="col-sm-4" id="form-fmvp">
+            <input type="text" class="form-control" id="input-fmvp" value="{{one.fmvp}}">
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <button class="btn btn-primary btn-lg">Submit</button>
+        </div>
+        
+    
+    </div>
+
+</form>
+<div class="row up">
+    <div class="col-sm-9"></div>
+ <div class="col-sm-2 up">
+    <button id="discard" type="button" class="btn btn-link up" >Discard</button>
+</div></div>
+{% endblock %}

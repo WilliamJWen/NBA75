@@ -1,0 +1,171 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'addplayer.js') }}"></script>
+
+<script>
+    var names = {{ names| tojson}}
+</script>
+
+<style>
+    #success-notification {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .header {color: rgb(23, 64, 139);
+        display: block;
+        padding-left: 100px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    #input-name {
+        width: 300px;
+    }
+
+</style>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-primary" role="alert" id="success-notification">
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 header">
+        <h2>Adding a new player</h2>
+    </div>
+</div>
+
+<form id="new-form" novalidate>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Player name</label>
+        <div class="col-sm-4" id="form-name">
+            <input type="text" class="form-control" id="input-name" name="name" placeholder="name" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Birthyear</label>
+        <div class="col-sm-4" id="form-birth">
+            <input type="number" min="1900" max="2022" class="form-control" id="input-birth" placeholder="1970"
+                required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Position</label>
+        <div class="col-sm-4" id="form-position">
+            <input type="text" class="form-control" id="input-position" placeholder="Forward" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Headshot link</label>
+        <div class="col-sm-10" id="form-headshot">
+            <input type="url" class="form-control" id="input-headshot" placeholder="url" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Image link</label>
+        <div class="col-sm-10" id="form-image">
+            <input type="url" class="form-control" id="input-image" placeholder="url" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Team(s)</label>
+        <div class="col-sm-6" id="form-team">
+            <input type="text" class="form-control" id="input-team" placeholder="Los Angeles Lakers (1996-2004)"
+                required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Points</label>
+        <div class="col-sm-4" id="form-points">
+            <input type="number" min="0" class="form-control" id="input-points" placeholder="25000" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Rebounds</label>
+        <div class="col-sm-4" id="form-rebounds">
+            <input type="number" min="0" class="form-control" id="input-rebounds" placeholder="7000" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Assists</label>
+        <div class="col-sm-4" id="form-assists">
+            <input type="number" min="0" class="form-control" id="input-assists" placeholder="7000" required>
+        </div>
+    </div>
+
+
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Summary</label>
+        <div class="col-sm-10" id="form-summary">
+            <input type="text" class="form-control" id="input-summary" placeholder="summary" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10" id="form-description">
+            <textarea class="form-control" id="input-description" rows="3" placeholder="description"
+                required></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Champianship(s)</label>
+        <div class="col-sm-4" id="form-champ">
+            <input type="text" class="form-control" id="input-champ" placeholder="2011,2012 or None" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">MVP(s)</label>
+        <div class="col-sm-4" id="form-mvp">
+            <input type="text" class="form-control" id="input-mvp" placeholder="2011,2012 or None" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">FMVP(S)</label>
+        <div class="col-sm-4" id="form-fmvp">
+            <input type="text" class="form-control" id="input-fmvp" placeholder="2011,2012 or None" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">ALL STAR times</label>
+        <div class="col-sm-4" id="form-allstar">
+            <input type="number" min="0" max="24" class="form-control" id="input-allstar" placeholder="12" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">All NBA times</label>
+        <div class="col-sm-4" id="form-allnba">
+            <input type="number" min="0" max="24" class="form-control" id="input-allnba" placeholder="12" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

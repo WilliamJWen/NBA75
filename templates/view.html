@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<script>
+    let one = {{ one| tojson}}
+</script>
+
+
+
+<style>
+    .award {
+        padding-inline-start: 13px
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 25px;
+        padding: 5px
+    }
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <div id="name" class="title">{{one.name}}</div>
+            <div id="image"><img src='{{one.image}}' width="91%" alt="player's image"></div>
+            <div id="birthday">Born {{one.birthyear}}</div>
+            <div>
+                <a id="position" href="/search/{{one.position}}">Position : {{one.position}}</a>
+            </div>
+            <p>
+                <a href='/edit/{{one.id}}'>
+                    <img src="https://www.freeiconspng.com/thumbs/edit-icon-png/edit-new-icon-22.png" width="15px"
+                        alt="edit">
+                </a>
+            </p>
+
+        </div>
+        <div class="col-9">
+            <div class="row">
+                <div class="col-5">
+                    <div class="head">Career</div>
+                    <div id="team_years">
+                        Career history:
+                        <ul>
+                            {% for team in one.years %}
+                            <li> {{team}} </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div id="stats">Stats:
+                        <ul>
+                            <li>Total Points : {{one.points}}</li>
+                            <li> Total Assists : {{one.assists}}</li>
+                            <li> Total Rebounds : {{one.rebounds}}</li>
+                    </div>
+                    </ul>
+
+                </div>
+
+                <div class="col-7">
+                    <div class="head">Award</div>
+                    <div id="honor">
+                        <div class="row"></div>
+                        <div class="row">
+
+
+                            <div id="champ" class="col-4">Championships:
+                                <ul class="award">
+                                    {% for win in one.championships %}
+                                    <li> {{win}}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div id="mvp" class="col-4">MVP:
+                                <ul class="award">
+                                    {% for win in one.mvp %}
+                                    <li> {{win}}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div id="fmvp" class="col-4">FMVP:
+                                <ul class="award">
+                                    {% for win in one.fmvp %}
+                                    <li> {{win}}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="allstar">AllStar : {{one.allstar}} times</div>
+                            <div id="allnba">AllNBA : {{one.allnba}} times</div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <br>
+            <div>
+                <div id="feature" class="head">
+                    {{one.feature}}</div>
+                <div id="overview">{{one.overview}}</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

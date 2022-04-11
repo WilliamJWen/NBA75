@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'homepage.js') }}"></script>
+<script>
+    let goats = {{ goats| tojson}}
+
+    $(document).ready(function () {
+    
+    $("#goat").empty();
+    $.each(goats, function (index, item) { 
+
+        var result = make_card(index, item)        
+        var row = $("<div id='results' class='row'></div>")
+        $("#goat").append(row)
+        $("#results").append(result)
+       
+    });
+
+});
+</script>
+
+<div class="debate">The debate of the GOAT:</div>
+<div id="goat"></div>
+
+
+
+{% endblock %}
