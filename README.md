@@ -1,6 +1,11 @@
 # NBA75 Flask Application
 ## Overview
 
+[Demo Video:](https://www.youtube.com/watch?v=JDzY_b68PWU&ab_channel=WilliamWen)
+
+https://github.com/WilliamJWen/NBA75/assets/103137385/1adb8410-4559-4b42-81dd-45bef0274c0f
+
+
 ## Set up Instructions
 
 ### Steps to Set Up and Run the Application
